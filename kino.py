@@ -33,7 +33,7 @@ def main(main_params):
                 structured_Data = soup_extract(soup)
                 #print(f'11 - Structured data from /htmls/{html} into Python data')
                 print(f'11 - Structured data')  ## simpler terminology for logging
-                csv_out1(i, structured_Data, f'csvs/{csv}', mode=main_params['csv_mode']) # Multiple CSV files - one for each html
+                csv_out(i, structured_Data, f'csvs/{csv}', mode=main_params['csv_mode']) # Multiple CSV files - one for each html
                 if main_params['csv_mode'] == 'w':
                     #print(f'11 - Created .CSV file from {html} at ~/csvs/{csv}') # Another approach: append all into one CSV file
                     print(f'11 - Created ~/csvs/{csv}') ## simpler terminology for logging
@@ -50,6 +50,6 @@ from time import sleep
 welcome()
 
 from user_input import urls, download_htmls, files, main_params
-from html_to_csv import html_soup, soup_extract, csv_out1
+from html_to_csv import html_soup, soup_extract, csv_out
 
 main(main_params)

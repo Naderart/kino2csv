@@ -70,7 +70,7 @@ def soup_extract(soup):
         dicts_in_list.append( dict(formulas(i)) )  # directly append dict to list points in memory to the same value, fix: list.append( dict(dict_) )
     return dicts_in_list
 
-def csv_out1(i, dicts_in_list, file_out, mode='w'):
+def csv_out(i, dicts_in_list, file_out, mode='w'):
     """Opens a new CSV file, writes or appends to it."""
     if mode == 'a':
         file_out = f"csvs/{main_params['csv_filename']}-appended.csv"
