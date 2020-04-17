@@ -158,6 +158,3 @@ for key, value in main_params.items():
 query_dic = user_ans_dict(defaults_dict)
 urls = imdb_search(query_dic,main_params['items'], main_params['per_page'])
 files = [ [ i, f"{main_params['html_filename']}-{i}.html", f"{main_params['csv_filename']}-{i}.csv"] for i in range(len(urls)) ]
-
-#print(main_params)
-#print(urls)

@@ -88,7 +88,3 @@ def csv_out1(i, dicts_in_list, file_out, mode='w'):
             writer.writerows(dicts_in_list)
         except:
             print('00 - Error: CSV file Could not be created.....')
-
-#soup = html_soup('htmls/IMDb-big-0.html')
-#dicts = soup_extract(soup)
-#print(dicts[0])
