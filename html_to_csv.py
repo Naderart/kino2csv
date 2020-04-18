@@ -70,21 +70,16 @@ def soup_extract(soup):
         dicts_in_list.append( dict(formulas(i)) )  # directly append dict to list points in memory to the same value, fix: list.append( dict(dict_) )
     return dicts_in_list
 
-def csv_out(i, dicts_in_list, file_out, mode='w'):
+def csv_out(page_num, dicts_in_list, file_name):
     """Opens a new CSV file, writes or appends to it."""
-    if mode == 'a':
-        file_out = f"csvs/{main_params['csv_filename']}-appended.csv"
-    else:
-        pass
-    with open(file_out, mode ) as csv_file:
+    file_name = f"csvs/{file_name}.csv"
+    with open(file_name, 'a' ) as csv_file:
         try:
             writer = csv.DictWriter(csv_file, fieldnames=list(dicts_in_list[0].keys()))
-            if i == 0:
+            if page_num == 0:
                 writer.writeheader()
-            elif i > 0 and mode == 'w':
-                writer.writeheader()
+                writer.writerows(dicts_in_list)
             else:
-                pass
-            writer.writerows(dicts_in_list)
+                writer.writerows(dicts_in_list)
         except:
-            print('00 - Error: CSV file Could not be created.....')
+            print('00 - Error: CSV file Could not be created...')
