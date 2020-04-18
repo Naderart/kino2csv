@@ -100,7 +100,7 @@ def download_html(url, timeout):
         print('11 - Connected: Grabbing data...')
         req = requests.get(url, timeout=timeout, headers=payload) # custom headers go here: requsts.get( headers=head )
         print(f'11 - Took {req.elapsed} to load')
-        req.encoding = 'ISO-8859-1'
+        #req.encoding = 'ISO-8859-1' ## utf-8 is better, non-latin charachters mis-translated with  ISO-8859-1
         soup = BeautifulSoup(req.text, 'lxml')
         print('11 - Parsing page...')
     except (requests.exceptions.ConnectTimeout, requests.exceptions.ReadTimeout):
