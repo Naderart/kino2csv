@@ -8,7 +8,7 @@ import re
 
 def user_ans(in_name, default):
     print("E.g.: {default[1]}")
-    user_input = input(f"{in_name.replace('_',' ').title()}: '.rjust(21,'░'))
+    user_input = input( f"{in_name.replace('_',' ').title()}: ".rjust(21,'░') )
     if user_input == '': ## all defaults are already '' .. this if statement is redundant and can be removed, will keep it tho.
         user_ans = default[0]
     else:
