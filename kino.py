@@ -15,30 +15,30 @@ def welcome():
     sleep(1)
 
 def main(main_params):
-    if path.exists('csv'):
+    if path.exists('csvs'):
         pass
     else:
-        mkdir('csv')
+        mkdir('csvs')
     #failed = []
-    try:
-        for n, url in enumerate(urls):
-            soup = download_html(url,main_params['timeout'])
-            if soup == 0:
-                print(f'Error.. page{n} - soup = 0')
-                #failed.append(urls[n])
-            else:
-                structured_Data = soup_extract(soup)
-                print(f'11 - Structured data')
-                csv_out(n, structured_Data, main_params['file_name'])
-                print(f"11 - Appended data to /csvs/{main_params['file_name']}.csv")
-            if n < len(urls)-1:
-                for sec in range(0,main_params['wait_time'],main_params['wait_counter']):
-                    print( f"-- - Waiting... T-{ str(main_params['wait_time']-sec).zfill( len( str(main_params['wait_time']) ) )} sec" )
-                    sleep(main_params['wait_counter'])
-            else:
-                print( '11 - Finished.')
-    except:
-        print('00 - Error: Unknown Error...')
+    #try:
+    for n, url in enumerate(urls):
+        soup = download_html(url,main_params['timeout'])
+        if soup == 0:
+            print(f'Error.. page{n} - soup = 0')
+            #failed.append(urls[n])
+        else:
+            structured_Data = soup_extract(soup)
+            print(f'11 - Structured data')
+            csv_out(n, structured_Data, main_params['file_name'])
+            print(f"11 - Appended data to /csvs/{main_params['file_name']}.csv")
+        if n < len(urls)-1:
+            for sec in range(0,main_params['wait_time'],main_params['wait_counter']):
+                print( f"-- - Waiting... T-{ str(main_params['wait_time']-sec).zfill( len( str(main_params['wait_time']) ) )} sec" )
+                sleep(main_params['wait_counter'])
+        else:
+            print( '11 - Finished.')
+    #except:
+        #print('00 - Error: Unknown Error...')
 
 from time import sleep
 

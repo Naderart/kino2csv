@@ -102,7 +102,7 @@ def download_html(url, timeout):
         print(f'11 - Took {req.elapsed} to load')
         req.encoding = 'ISO-8859-1'
         soup = BeautifulSoup(req.text, 'lxml')
-        print('11 - Finished parsing page...')
+        print('11 - Parsing page...')
     except (requests.exceptions.ConnectTimeout, requests.exceptions.ReadTimeout):
         soup = 0
         print('00 - Loading Timed out....')
